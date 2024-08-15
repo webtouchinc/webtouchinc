@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webtouch Music Showcase</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        /* Navbar */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar-menu li {
+            margin-left: 20px;
+        }
+
+        .navbar-menu a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .navbar-menu a:hover {
+            background-color: #575757;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('6.gif') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: darkgreen;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .hero-content button {
+            padding: 15px 30px;
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .hero-content button:hover {
+            background-color: darkgreen
+            ;
+        }
+
+        /* Featured Artists Section */
+        .featured-artists {
+            padding: 80px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .featured-artists h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .artist-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .artist-item {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .artist-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .artist-item img {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .artist-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .artist-item p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Albums Section */
+        .albums {
+            padding: 80px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .albums h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .album-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .album-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .album-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .album-item img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .album-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .album-item p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Music Player Section */
+        .music-player {
+            padding: 80px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .music-player h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .player-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-link {
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #ff5722;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .navbar-menu.active {
+                display: flex;
+            }
+
+            .navbar-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .artist-item, .album-item {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .contact-link {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="navbar-logo">WebtouchMusic Showcase</div>
+        <ul class="navbar-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#artists">Artists</a></li>
+            <li><a href="#albums">Albums</a></li>
+            <li><a href="#player">Player</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="navbar-toggle">Menu</button>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Discover the Best Music</h1>
+        <p>Explore artists, albums, and tracks from around the world</p>
+        <button>Listen Now</button>
+    </div>
+</section>
+
+<section class="featured-artists" id="artists">
+    <h2>Featured Artists</h2>
+    <div class="artist-list">
+        <div class="artist-item">
+            <img src="2.gif" alt="Artist Name">
+            <h3>Artist Name</h3>
+            <p>Genre, Country</p>
+        </div>
+        <div class="artist-item">
+            <img src="5.gif" alt="Artist Name">
+            <h3>Artist Name</h3>
+            <p>Genre, Country</p>
+        </div>
+        <div class="artist-item">
+            <img src="4.gif" alt="Artist Name">
+            <h3>Artist Name</h3>
+            <p>Genre, Country</p>
+        </div>
+    </div>
+</section>
+
+<section class="albums" id="albums">
+    <h2>Latest Albums</h2>
+    <div class="album-list">
+        <div class="album-item">
+            <img src="1.gif" alt="Album Title">
+            <h3>Album Title</h3>
+            <p>Artist Name</p>
+        </div>
+        <div class="album-item">
+            <img src="7.webp" alt="Album Title">
+            <h3>Album Title</h3>
+            <p>Artist Name</p>
+        </div>
+        <div class="album-item">
+            <img src="3.gif" alt="Album Title">
+            <h3>Album Title</h3>
+            <p>Artist Name</p>
+        </div>
+    </div>
+</section>
+
+<section class="music-player" id="player">
+    <h2>Listen to Our Music</h2>
+    <div class="player-container">
+        <audio controls>
+            <source src="sample.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+        <a href="mailto:webtouchus@gmail.com" class="contact-link">webtouchus@gmail.com</a>
+        <a href="tel:+237688006386" class="contact-link">+237 688006386</a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Music Showcase. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
